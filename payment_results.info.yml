@@ -1,0 +1,5 @@
+name: "payment_results"
+type: module
+description: "Generates pages to show if a payment has been successful or not. Text displayed can be configured"
+core_version_requirement: ^8 || ^9
+package: "Custom"

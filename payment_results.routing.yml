@@ -1,0 +1,25 @@
+payment_results.good_payment_controller_goodPayment:
+  path: "/goodpayment"
+  defaults:
+    _controller: '\Drupal\payment_results\Controller\GoodPaymentController::goodPayment'
+    _title: "Payment Accepted"
+  requirements:
+    _permission: "access content"
+
+payment_results.bad_payment_controller_badPayment:
+  path: "/badpayment"
+  defaults:
+    _controller: '\Drupal\payment_results\Controller\BadPaymentController::badPayment'
+    _title: "Payment Declined"
+  requirements:
+    _permission: "access content"
+
+payment_results.payment_results_configuration_form:
+  path: "/admin/config/payment_results/paymentresultsconfiguration"
+  defaults:
+    _form: '\Drupal\payment_results\Form\PaymentResultsConfigurationForm'
+    _title: "PaymentResultsConfigurationForm"
+  requirements:
+    _permission: "access administration pages"
+  options:
+    _admin_route: TRUE

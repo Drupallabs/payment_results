@@ -1,0 +1,6 @@
+payment_results.payment_results_configuration_form:
+  title: "Payment Results Configuration"
+  route_name: payment_results.payment_results_configuration_form
+  description: "Payment results text configuration"
+  parent: system.admin_config_system
+  weight: 99

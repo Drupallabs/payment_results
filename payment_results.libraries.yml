@@ -1,0 +1,6 @@
+payment_results_default:
+  js:
+    js/payment_results.js: {}
+  css:
+    component:
+      css/payment_results.css: {}

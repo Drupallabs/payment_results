@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Contains payment_results.module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function payment_results_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+      // Main module help for the payment_results module.
+    case 'help.page.payment_results':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Generates pages to show if a payment has been successful') . '</p>';
+      $output .= '<p>' . t('To send to a good payment page use : return $this->redirect(\'payment_results.good_payment_controller_goodPayment\')') . '</p>';
+      $output .= '<p>' . t('To send to a bad payment page use : return $this->redirect(\'payment_results.bad_payment_controller_badPayment\')') . '</p>';
+      $output .= '<p>' . t('Provides a configuration page to set text for the above pages at: /admin/config/payment_results/paymentresultsconfiguration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function payment_results_theme()
+{
+  return [
+    'payment_results' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Adds library to /goodpayment and /badpayment pages
+ * 
+ */
+
+function payment_results_page_attachments(array &$page)
+{
+  //get the cuttent route name
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  // Applys library only to /goodpayment and /badpayment pages
+  if (($route_name == 'payment_results.good_payment_controller_goodPayment') || ($route_name == 'payment_results.bad_payment_controller_badPayment')) {
+    $page['#attached']['library'][] = 'payment_results/payment_results_default';
+  }
+}

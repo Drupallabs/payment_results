@@ -1,0 +1,4 @@
+payment_results:
+  good_payment_message: "Thank you, your payment was successful."
+  good_payment_message_line2: "Please note it may take up to 30 minutes to process your payment."
+  bad_payment_message: "Sorry, your payment has failed, please try again."
